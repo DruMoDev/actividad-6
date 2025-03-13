@@ -1,15 +1,14 @@
 <div class="card h-100">
-  <img
-    src="{{ user.image }}"
-    alt="User picture"
-    class="card-img-top"
-  />
-  <div class="card-body">
-    <h3 class="h4 text-center">{{ user.first_name }} {{ user.last_name }}</h3>
+  <img src="{{ user.image }}" alt="User picture" class="card-img-top" />
+  <div class="card-body h-100">
+    <h3 class="h4 text-center mb-auto">
+      {{ user.first_name }} {{ user.last_name }}
+    </h3>
   </div>
-  <div class="d-flex justify-content-between mb-2 px-1">
+
+  <div class="d-flex flex-wrap justify-content-evenly gap-1 mb-3 px-2">
     <div class="d-flex flex-column">
-      <button class="btn">
+      <a class="text-center">
         <div>
           <img
             src="/svg/search-svg.svg"
@@ -18,10 +17,12 @@
             height="24"
           />
         </div>
-        <span class="text-nowrap">Ver detalles</span>
-      </button>
+        <span class="text-nowrap d-md-none d-block d-xl-block"
+          >Ver detalles</span
+        >
+      </a>
     </div>
-    <button class="btn">
+    <a class="text-center">
       <div>
         <img
           src="/svg/reload-svg.svg"
@@ -30,9 +31,9 @@
           height="24"
         />
       </div>
-      <span class="text-nowrap">Actualizar</span>
-    </button>
-    <button class="btn">
+      <span class="text-nowrap d-md-none d-block d-xl-block">Actualizar</span>
+    </a>
+    <a class="text-center">
       <div>
         <img
           src="/svg/delete-svg.svg"
@@ -41,7 +42,7 @@
           height="24"
         />
       </div>
-      <span class="text-nowrap">Eliminar</span>
-    </button>
+      <span class="text-nowrap d-md-none d-block d-xl-block">Eliminar</span>
+    </a>
   </div>
 </div>
