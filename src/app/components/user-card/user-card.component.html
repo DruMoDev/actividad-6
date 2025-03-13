@@ -1,10 +1,47 @@
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+<div class="card h-100">
+  <img
+    src="{{ user.image }}"
+    alt="User picture"
+    class="card-img-top"
+  />
+  <div class="card-body">
+    <h3 class="h4 text-center">{{ user.first_name }} {{ user.last_name }}</h3>
   </div>
+  <div class="d-flex justify-content-between mb-2 px-1">
+    <div class="d-flex flex-column">
+      <button class="btn">
+        <div>
+          <img
+            src="/svg/search-svg.svg"
+            alt="Search user details"
+            width="24"
+            height="24"
+          />
+        </div>
+        <span class="text-nowrap">Ver detalles</span>
+      </button>
+    </div>
+    <button class="btn">
+      <div>
+        <img
+          src="/svg/reload-svg.svg"
+          alt="Reload user data"
+          width="24"
+          height="24"
+        />
+      </div>
+      <span class="text-nowrap">Actualizar</span>
+    </button>
+    <button class="btn">
+      <div>
+        <img
+          src="/svg/delete-svg.svg"
+          alt="Delete user"
+          width="24"
+          height="24"
+        />
+      </div>
+      <span class="text-nowrap">Eliminar</span>
+    </button>
+  </div>
+</div>
