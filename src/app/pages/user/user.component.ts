@@ -25,7 +25,11 @@ export class UserComponent {
   router = inject(Router);
 
   async ngOnInit() {
-    const user = await this.usersService.getUserById(this.id);
-    this.user = user;
+    try {
+      const user = await this.usersService.getUserById(this.id);
+      this.user = user;
+    } catch (error) {
+      this.router.navigate(['/home']);
+    }
   }
 }

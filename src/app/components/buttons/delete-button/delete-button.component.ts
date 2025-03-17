@@ -21,13 +21,16 @@ export class DeleteButtonComponent {
         onClick: async () => {
           try {
             const res = await this.usersService.delete(this.id);
+            if ('error' in res) {
+              toast.error(res.error);
+            }
             this.router.navigate(['/home']);
+            toast.success('Usuario eliminado correctamente');
           } catch (error) {
             toast.error('Error al eliminar el usuario');
           }
         },
       },
-      position: 'top-center',
       cancel: {
         label: 'Cancelar',
         onClick: () => {
