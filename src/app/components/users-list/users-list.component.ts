@@ -15,8 +15,8 @@ export class UsersListComponent {
 
   async ngOnInit() {
     try {
-      let response = await this.usersService.getUsers();
-      this.usersList = response.results
+      let response = await this.usersService.getAll();
+      this.usersList = response.results;
       console.log(this.usersList);
     } catch (error) {
       console.error(error);
