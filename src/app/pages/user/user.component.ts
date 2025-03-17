@@ -23,7 +23,6 @@ export class UserComponent {
   router = inject(Router);
 
   async ngOnInit() {
-    console.log('ID', this.id);
     try {
       const user = await this.usersService.getUserById(this.id);
       this.user = user;

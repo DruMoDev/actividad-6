@@ -17,7 +17,6 @@ export class UsersListComponent {
     try {
       let response = await this.usersService.getAll();
       this.usersList = response.results;
-      console.log(this.usersList);
     } catch (error) {
       console.error(error);
     }

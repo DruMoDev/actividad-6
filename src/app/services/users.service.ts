@@ -29,4 +29,12 @@ export class UsersService {
   delete(id: string): Promise<User | { error: string }> {
     return lastValueFrom(this.httpClient.delete<User>(`${this.baseUrl}/${id}`));
   }
+
+  create(user: User): Promise<User> {
+    return lastValueFrom(this.httpClient.post<User>(this.baseUrl, user));
+  }
+
+  update(id: string, user: Partial<User>): Promise<User | { error: string }> {
+    return lastValueFrom(this.httpClient.put<User>(`${this.baseUrl}/${id}`, user));
+  }
 }
