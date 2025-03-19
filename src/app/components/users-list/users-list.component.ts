@@ -12,13 +12,29 @@ import { User } from '../../interfaces/user.interface';
 export class UsersListComponent {
   usersList: User[] = [];
   usersService = inject(UsersService);
+  page: number = 1;
+  totalPages: number = 0;
 
   async ngOnInit() {
     try {
       let response = await this.usersService.getAll();
       this.usersList = response.results;
+      this.totalPages = response.total_pages;
     } catch (error) {
       console.error(error);
     }
+  }
+
+  changePage(number: number) {
+    this.page += number;
+    if (this.page < 1) {
+      this.page = 1;
+    }
+    if (this.page > this.totalPages) {
+      this.page = 1;
+    }
+    this.usersService.getAll(this.page).then((response) => {
+      this.usersList = response.results;
+    });
   }
 }

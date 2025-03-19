@@ -18,8 +18,10 @@ export class UsersService {
   private baseUrl: string = 'https://peticiones.online/api/users';
   private httpClient = inject(HttpClient);
 
-  getAll(): Promise<ApiResponse> {
-    return lastValueFrom(this.httpClient.get<ApiResponse>(this.baseUrl));
+  getAll(page: number = 1): Promise<ApiResponse> {
+    return lastValueFrom(
+      this.httpClient.get<ApiResponse>(`${this.baseUrl}?page=${page}`)
+    );
   }
 
   getUserById(id: string): Promise<User> {
@@ -35,6 +37,8 @@ export class UsersService {
   }
 
   update(id: string, user: Partial<User>): Promise<User | { error: string }> {
-    return lastValueFrom(this.httpClient.put<User>(`${this.baseUrl}/${id}`, user));
+    return lastValueFrom(
+      this.httpClient.put<User>(`${this.baseUrl}/${id}`, user)
+    );
   }
 }

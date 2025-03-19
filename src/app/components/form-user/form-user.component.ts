@@ -46,7 +46,6 @@ export class FormUserComponent {
     if (this.id) {
       try {
         const res = await this.userService.getUserById(this.id);
-        console.log('From Form', res);
         this.userForm.patchValue(res);
         this.title = 'Editar Usuario';
         this.buttonText = 'Editar';
@@ -68,6 +67,7 @@ export class FormUserComponent {
         }
       } catch (error) {
         console.log(error);
+        toast.error('Error al actualizar el usuario');
       }
     } else {
       try {
@@ -76,6 +76,7 @@ export class FormUserComponent {
         this.router.navigate(['/home']);
       } catch (error) {
         console.log(error);
+        toast.error('Error al crear el usuario');
       }
     }
   }
